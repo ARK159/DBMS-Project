@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333333;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .link a {
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .link a:hover {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+    <h2>Login</h2>
+    <form>
+      <input type="text" id="user_id" placeholder="Username" required>
+      <input type="password" id="user_password"placeholder="Password" required>
+      <input type="submit" value="Login">
+    </form>
+    <div class="link">
+      Don't have an account? <a href="register.html">Register</a>
+    </div>
+  </div>
+</body>
+</html>
