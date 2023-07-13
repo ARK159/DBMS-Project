@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Groceries</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
+    <title>Groceries</title>
+    <link rel="stylesheet" href="groceries.css">
+    <link rel="stylesheet" href="products.css">
 
-  </style>
+   
 </head>
 <body>
-  
-  <footer>
-    Enjoy Shopping
-  </footer>
+    <div class="container">
+        <button class="btn-home" onclick="location.href='homepage.html';">Home</button>
+        <div class="categories">
+            <button class="category active" onclick="location.href='groceries.html';">Groceries</button>
+            <button class="category" onclick="location.href='fashion.html';">Fashion</button>
+            <button class="category" onclick="location.href='electronics.html';">Electronics</button>
+            <button class="category" onclick="location.href='sports.html';">Sports</button>
+        </div>
+        <div class="product-list">
+            <div class="product">
+                <img src="logo.png" alt="Product 1">
+                <h3>yes</h3>
+                <p>oksosks</p>
+                <form action="/add_to_cart" method="POST">
+                    <input type="hidden" name="product_id" value="product1">
+                    <input type="hidden" name="type" value="grocery">
+                    <input type="hidden" name="color" value="green">
+                    <input type="hidden" name="p_size" value="M">
+                    <input type="hidden" name="gender" value="F">
+                    <input type="hidden" name="cost" value="10">
+                    <input type="hidden" name="quantity" value="5">
+                    <input type="hidden" name="seller_id" value="seller1">
+                    <button type="submit" class="add-to-cart-button">
+                        <span class="add-to-cart-icon">&#128722;</span>
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+            <div class="product">
+                <img src="logo.png" alt="Product 2">
+                <h3>Hello</h3>
+                <p>hello</p>
+                <form action="/add_to_cart" method="POST">
+                    <input type="hidden" name="product_id" value="product2">
+                    <input type="hidden" name="type" value="grocery">
+                    <input type="hidden" name="color" value="red">
+                    <input type="hidden" name="p_size" value="L">
+                    <input type="hidden" name="gender" value="M">
+                    <input type="hidden" name="cost" value="15">
+                    <input type="hidden" name="quantity" value="3">
+                    <input type="hidden" name="seller_id" value="seller2">
+                    <button type="submit" class="add-to-cart-button">
+                        <span class="add-to-cart-icon">&#128722;</span>
+                        Add to Cart
+                    </button>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+    <footer>
+        Enjoy Shopping
+    </footer>
 </body>
 </html>
