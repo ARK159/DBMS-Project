@@ -4,8 +4,13 @@
     <title>Groceries</title>
     <link rel="stylesheet" href="groceries.css">
     <link rel="stylesheet" href="products.css">
-
-   
+    <style>
+        .product .cost {
+            font-size: 16px;
+            color: #333333;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -21,6 +26,7 @@
                 <img src="logo.png" alt="Product 1">
                 <h3>yes</h3>
                 <p>oksosks</p>
+                <p class="cost">Rs.1000</p>
                 <form action="/add_to_cart" method="POST">
                     <input type="hidden" name="product_id" value="product1">
                     <input type="hidden" name="type" value="grocery">
@@ -40,6 +46,7 @@
                 <img src="logo.png" alt="Product 2">
                 <h3>Hello</h3>
                 <p>hello</p>
+                <p class="cost">Rs.1500</p>
                 <form action="/add_to_cart" method="POST">
                     <input type="hidden" name="product_id" value="product2">
                     <input type="hidden" name="type" value="grocery">
