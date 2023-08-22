@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/products.css')}}">
+</head>
+<body>
+  <div class="container">
+  
+    <button class="btn-home" onclick="location.href="{{ url_for('home', username=username) }}">Home</button>
+
+    <div class="categories">
+        <form action="{{url_for('categories',username=username)}}" method="GET">
+            <button class="category" type="submit" name="category" value="groceries">Groceries</button>
+        </form>
+        <form action="{{url_for('categories',username=username)}}" method="GET">
+            <button class="category" type="submit" name="category" value="fashion">Fashion</button>
+        </form>
+        <form action="{{url_for('categories',username=username)}}" method="GET">
+            <button class="category" type="submit" name="category" value="electronics">Electronics</button>
+        </form>
+        <form action="{{url_for('categories',username=username)}}" method="GET">
+            <button class="category" type="submit" name="category" value="sports">Sports</button>
+        </form>
+    </div>
+</div>
+
+    <div class="video-container">
+      <video src="{{ url_for('static',filename='videos/products.mp4') }}" autoplay loop muted></video>
+      Your browser does not support the video tag.
+    </div>
+  </div>
+  <footer>
+    Enjoy Shopping.
+  </footer>
+</body>
+</html>

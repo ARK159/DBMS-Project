@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Groceries</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/groceries.css')}}">
+</head>
+<body>
+
+        <a href="{{ url_for('home',username=username) }}" class="home-button">Home</a>
+        <h2>Groceries</h2>
+        <h1>Welcome, {{ username }}</h1>
+        <div class="product-list">
+            {% for products in product %}
+            <div class="product">
+              
+                <img src="{{ url_for('static',filename='images/'+products[-2].strip()) }}" alt="Product Image">
+                <div class="product-info">
+                
+                    <h3>{{ products[9] }}</h3>
+                    {% for i in range(products|length -2) %}
+                            {% if products[i]!=None and (i!=0 and i!=7 and i!=6) %}
+                            <p>{{ columns[i] }}: {{ products[i] }}</p>
+                            {% endif %}
+
+                    {% endfor %}
+                    <p>{{"Quantity Ordered"}}: {{quantity[loop.index0]}}</p>
+                    
+                    <p class="price">Rs.{{ products[5]*quantity[loop.index0]}}</p>
+                </div>
+            </div>
+        
+            {% endfor %}
+        </div>
+        <h1>{{ "TOTAL:"}} {{total }}</h1> 
+        <a href="{{ url_for('payment',username=username) }}" class="pay-now-button">PAY NOW</a>
+        
+    </div>
+    <footer>
+        Enjoy Shopping
+    </footer>
+</body>
+</html>
