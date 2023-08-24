@@ -1,42 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Groceries</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/groceries.css')}}">
+    <title>Your Cart - Groceries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+        }
+
+        .product-info h3 {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .product-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-info ul li {
+            margin: 5px 0;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .total {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+
+        .pay-now-button {
+            display: block;
+            text-align: center;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px auto;
+            width: 150px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .home-button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="{{ url_for('home',username=username) }}" class="home-button">Home</a>
+        </nav>
+        <h1>Your Cart</h1>
+        <h2>Welcome, {{ username }}</h2>
+    </header>
 
-        <a href="{{ url_for('home',username=username) }}" class="home-button">Home</a>
-        <h2>Groceries</h2>
-        <h1>Welcome, {{ username }}</h1>
+    <section class="cart">
         <div class="product-list">
-            {% for products in product %}
+            {% for product in products %}
             <div class="product">
-              
-                <img src="{{ url_for('static',filename='images/'+products[-2].strip()) }}" alt="Product Image">
-                <div class="product-info">
                 
-                    <h3>{{ products[9] }}</h3>
-                    {% for i in range(products|length -2) %}
-                            {% if products[i]!=None and (i!=0 and i!=7 and i!=6) %}
-                            <p>{{ columns[i] }}: {{ products[i] }}</p>
-                            {% endif %}
-
-                    {% endfor %}
-                    <p>{{"Quantity Ordered"}}: {{quantity[loop.index0]}}</p>
-                    
-                    <p class="price">Rs.{{ products[5]*quantity[loop.index0]}}</p>
-                </div>
             </div>
-        
             {% endfor %}
         </div>
-        <h1>{{ "TOTAL:"}} {{total }}</h1> 
+        <h1 class="total">Total: Rs.{{ total }}</h1>
         <a href="{{ url_for('payment',username=username) }}" class="pay-now-button">PAY NOW</a>
-        
-    </div>
+    </section>
+
     <footer>
-        Enjoy Shopping
+        <p>Enjoy Shopping</p>
     </footer>
 </body>
 </html>
